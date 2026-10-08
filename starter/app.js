@@ -109,8 +109,6 @@ function akcja(co) {
   }
 
   zakonczTure()
-
-  console.log("Akcje do uzupelnienia");
 }
 
 start();
