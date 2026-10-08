@@ -67,11 +67,49 @@ function idz(kierunek) {
 // SEKCJA C — PRZEDMIOTY I WYGRANA
 function akcja(co) {
   // TODO C1: zablokuj akcje po koncu gry.
-  // TODO C2: switch: karta / bezpiecznik / napraw / wyjdz.
-  // TODO C2: przed zmiana sprawdz pokoj i wymagany stan.
-  // TODO C3: przy odrzuceniu return; przy sukcesie break.
-  // TODO C3: po switch jedno zakonczTure().
-  // TODO C4: wygrana i koniec ustawione przed rozliczeniem tury!
+  if(koniec) return;
+
+  switch(co){
+    case "karta":
+      if (pokoj !== 1 || karta) {
+        console.log("Tutaj nie ma karty do zabrania.");
+        return;
+      }
+      karta = true;
+      console.log("Zabierasz karte.");
+      break;    
+    case "bezpiecznik":z
+      if(pokoj !== 2 || bezpiecznik || zasilanie) {
+        console.log("Tutaj nie ma bezpiecznika do zabrania.");
+        return;
+      }
+      bezpiecznik=true;
+      console.log('Zbierasz bezpiecznik');
+      break;
+    case "napraw":
+      if(pokoj !== 3 || zasilanie || !bezpiecznik) {
+        console.log("Nie można wykonać tego działania");
+        return;
+      }
+      bezpiecznik=false;
+      zasilanie=true;
+      console.log('Udało ci się naprawić zasilanie');
+      break;
+    case "wyjdz":
+      if(pokoj !== 4 || !zasilanie || !karta) {
+        console.log('Nie można jeszcze wyjść');
+        return;
+      }
+      koniec=true
+      wygrana=true;
+      break
+    default:
+      console.log("Nieznana akcja");
+      return;
+  }
+
+  zakonczTure()
+
   console.log("Akcje do uzupelnienia");
 }
 
