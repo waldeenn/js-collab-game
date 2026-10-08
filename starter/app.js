@@ -165,7 +165,7 @@ function akcja(co) {
       karta = true;
       console.log("Zabierasz karte.");
       break;    
-    case "bezpiecznik":z
+    case "bezpiecznik":
       if(pokoj !== 2 || bezpiecznik || zasilanie) {
         console.log("Tutaj nie ma bezpiecznika do zabrania.");
         return;
